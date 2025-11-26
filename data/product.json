@@ -1,0 +1,15 @@
+[
+  {
+    "id": 1,
+    "name": "Paracetamol",
+    "price": 8000,
+    "count": 20
+  },
+  {
+    "id": 2,
+    "name": "Noshpa",
+    "price": 10000,
+    "count": 15
+  }
+]
+
