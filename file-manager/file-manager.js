@@ -1,36 +1,14 @@
-const fs = require("fs");
-const path = require("path");
+const fs = require("fs")
 
+const read_file =  (file_name) => {
+    return JSON.parse(fs.readFileSync(`./data/${file_name}`, "utf-8")
+)}
 
-const filePath = path.join(__dirname, "product.json");
-
-
-function readProducts() {
-    try {
-        const data = fs.readFileSync(filePath, "utf8");
-
-        if (!data || data.trim() === "") {
-            return [];
-        }
-
-        return JSON.parse(data);
-    } catch (err) {
-        console.log("Faylni o‘qishda xatolik:", err);
-        return [];
-    }
+const write_file = (file_name, data) => {
+    return fs.writeFileSync(`./data/${file_name}`, JSON.stringify(data, null, 4))
 }
-
-
-function writeProducts(products) {
-    try {
-        fs.writeFileSync(filePath, JSON.stringify(products, null, 2));
-    } catch (err) {
-        console.log("Faylni yozishda xatolik:", err);
-    }
-}
-
 
 module.exports = {
-    readProducts,
-    writeProducts
-};
+    read_file,
+    write_file
+}
